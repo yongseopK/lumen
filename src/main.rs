@@ -8,7 +8,8 @@ mod paint;
 mod renderer;
 
 fn main() {
-    println!("Hello, world!");
+    let response =http::fetch("http://www.example.com");
 
+    println!("{:?}", response);
 }
 
