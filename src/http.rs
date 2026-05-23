@@ -1,8 +1,8 @@
+use std::io::{Read, Write};
 use std::net::{Shutdown, TcpStream};
-use std::io::{Read, Write, BufReader};
 pub fn fetch(url: &str) -> String {
-
-    let without_scheme = url.strip_prefix("http://")
+    let without_scheme = url
+        .strip_prefix("http://")
         .or_else(|| url.strip_prefix("https://"))
         .unwrap_or(url);
 
@@ -15,7 +15,10 @@ pub fn fetch(url: &str) -> String {
 
     let mut stream = TcpStream::connect(request_url).unwrap();
 
-    let request = format!("GET / HTTP/1.1\r\nHost: {}\r\nConnection: close\r\n\r\n", domain);
+    let request = format!(
+        "GET {} HTTP/1.1\r\nHost: {}\r\nConnection: close\r\n\r\n",
+        path, domain
+    );
 
     stream.write_all(request.as_bytes()).unwrap();
 
@@ -24,32 +27,22 @@ pub fn fetch(url: &str) -> String {
 
     stream.shutdown(Shutdown::Both).unwrap();
 
-    let mut is_chunked = false;
-
-    let response = law_response.split("\r\n\r\n").collect::<Vec<&str>>();
-
-    let parsed_headers = response[0].split("\r\n").collect::<Vec<&str>>();
-    let parsed_response = response[1].split("\r\n").collect::<Vec<&str>>();
-
-    for (i, header) in parsed_headers.iter().enumerate() {
-        if (header.contains("Transfer-Encoding")) {
-            if (header.contains("chunked")) {
-                is_chunked = true
-            }
-        }
-    }
+    let (header, response) = match law_response.split_once("\r\n\r\n") {
+        Some((header, response)) => (header, response),
+        None => ("HTTP/1.1 200 OK\r\n\r\n", ""),
+    };
 
     let mut html = String::new();
 
-    if (is_chunked) {
-        for line in &parsed_response {
+    if header.contains("Transfer-Encoding: chunked") {
+        for line in response.lines() {
             if !is_hex(line) {
                 html.push_str(line);
             }
         }
     }
 
-    return html.trim().to_string();
+    (html.trim().to_string())
 }
 
 fn is_hex(s: &str) -> bool {

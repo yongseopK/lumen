@@ -8,7 +8,7 @@ mod paint;
 mod renderer;
 
 fn main() {
-    let response =http::fetch("http://www.example.com");
+    let response =http::fetch("http://www.example.com/");
 
     println!("{:?}", response);
 }
