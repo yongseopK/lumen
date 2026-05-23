@@ -32,7 +32,7 @@ URL
 
 | # | 모듈 | 상태 |
 |---|------|------|
-| 1 | HTTP Client | 🔄 진행중 |
+| 1 | HTTP Client | ✅ 완료 |
 | 2 | HTML Tokenizer | ⬜ |
 | 3 | DOM Parser | ⬜ |
 | 4 | CSS Parser | ⬜ |
