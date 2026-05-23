@@ -28,16 +28,16 @@ URL
 
 ## Stages
 
-| # | Module | Status |
-|---|--------|--------|
-| 1 | HTTP Client | 🔄 In progress |
-| 2 | HTML Tokenizer | ⬜ |
-| 3 | DOM Parser | ⬜ |
-| 4 | CSS Parser | ⬜ |
-| 5 | Style Resolver | ⬜ |
-| 6 | Layout Engine | ⬜ |
-| 7 | Paint Engine | ⬜ |
-| 8 | Window Renderer | ⬜ |
+| # | Module | Status         |
+|---|--------|----------------|
+| 1 | HTTP Client | ✅ Complete     |
+| 2 | HTML Tokenizer | 🔄 In progress |
+| 3 | DOM Parser | ⬜              |
+| 4 | CSS Parser | ⬜              |
+| 5 | Style Resolver | ⬜              |
+| 6 | Layout Engine | ⬜              |
+| 7 | Paint Engine | ⬜              |
+| 8 | Window Renderer | ⬜              |
 
 ## Non-goals
 

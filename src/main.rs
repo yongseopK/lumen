@@ -10,6 +10,8 @@ mod renderer;
 fn main() {
     let response =http::fetch("http://www.example.com/");
 
-    println!("{:?}", response);
+    // println!("{:?}", response);
+
+    html::tokenize("<h1 class=\"title\">Hello</h1>");
 }
 

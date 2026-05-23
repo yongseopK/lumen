@@ -30,16 +30,16 @@ URL
 
 ## 진행 현황
 
-| # | 모듈 | 상태 |
-|---|------|------|
-| 1 | HTTP Client | ✅ 완료 |
-| 2 | HTML Tokenizer | ⬜ |
-| 3 | DOM Parser | ⬜ |
-| 4 | CSS Parser | ⬜ |
-| 5 | Style Resolver | ⬜ |
-| 6 | Layout Engine | ⬜ |
-| 7 | Paint Engine | ⬜ |
-| 8 | Window Renderer | ⬜ |
+| # | 모듈 | 상태     |
+|---|------|--------|
+| 1 | HTTP Client | ✅ 완료   |
+| 2 | HTML Tokenizer | 🔄 진행중 |
+| 3 | DOM Parser | ⬜      |
+| 4 | CSS Parser | ⬜      |
+| 5 | Style Resolver | ⬜      |
+| 6 | Layout Engine | ⬜      |
+| 7 | Paint Engine | ⬜      |
+| 8 | Window Renderer | ⬜      |
 
 ## 하지 않는 것
 
